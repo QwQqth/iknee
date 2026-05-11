@@ -1,0 +1,34 @@
+{
+  "pages": [
+    "pages/intro/intro",
+    "pages/index/index",
+    "pages/profile/profile",
+    "pages/settings/settings",
+    "pages/logs/logs"
+  ],
+  "window": {
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "科学健老 · 小鹅",
+    "navigationBarBackgroundColor": "#e87840"
+  },
+  "tabBar": {
+    "custom": true,
+    "color": "#b07050",
+    "selectedColor": "#e87840",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "主页"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的"
+      }
+    ]
+  },
+  "style": "v2",
+  "componentFramework": "glass-easel",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

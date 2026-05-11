@@ -1,0 +1,112 @@
+/* pages/index/index.wxss */
+.home-page {
+  min-height: 100vh;
+  background: linear-gradient(160deg, #fff5f0 0%, #ffeee6 60%, #ffd6c2 100%);
+  padding: 32rpx;
+  box-sizing: border-box;
+}
+
+/* 顶部横幅 */
+.banner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: #ffffff;
+  border-radius: 32rpx;
+  padding: 36rpx 40rpx;
+  box-shadow: 0 8rpx 32rpx rgba(210, 100, 60, 0.10);
+  margin-bottom: 36rpx;
+}
+
+.banner-penguin {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  border: 4rpx solid #f0d0b8;
+  margin-right: 32rpx;
+}
+
+.banner-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.banner-title {
+  font-size: 36rpx;
+  font-weight: 700;
+  color: #3a2010;
+  margin-bottom: 8rpx;
+}
+
+.banner-sub {
+  font-size: 26rpx;
+  color: #b07050;
+}
+
+/* 功能卡片 */
+.card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background: #ffffff;
+  border-radius: 28rpx;
+  padding: 36rpx 40rpx;
+  box-shadow: 0 6rpx 24rpx rgba(210, 100, 60, 0.08);
+  margin-bottom: 28rpx;
+}
+
+.card:active {
+  background: #fff8f4;
+}
+
+.card-left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.card-icon {
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40rpx;
+  margin-right: 28rpx;
+}
+
+.quiz-icon {
+  background: #fff0e6;
+}
+
+.daily-icon {
+  background: #e6f5ee;
+}
+
+.video-icon {
+  background: #e6ecff;
+}
+
+.card-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-title {
+  font-size: 32rpx;
+  font-weight: 700;
+  color: #3a2010;
+  margin-bottom: 8rpx;
+}
+
+.card-desc {
+  font-size: 24rpx;
+  color: #b07050;
+}
+
+.card-arrow {
+  font-size: 40rpx;
+  color: #d0b0a0;
+}

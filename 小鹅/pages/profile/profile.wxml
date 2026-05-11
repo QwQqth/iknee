@@ -1,0 +1,67 @@
+<!-- pages/profile/profile.wxml -->
+<view class="profile-page">
+
+  <!-- 用户信息区 -->
+  <view class="user-card">
+    <view class="user-top">
+      <view class="avatar-wrap">
+        <image class="avatar" src="/images/鹅1.png" mode="aspectFill" />
+      </view>
+      <view class="user-basic">
+        <text class="user-name">{{userName}}</text>
+        <text class="user-gender">{{genderText}}</text>
+      </view>
+      <view class="bind-child" bindtap="onBindChild">
+        <text class="bind-child-icon">⊞</text>
+        <text class="bind-child-text">绑定子女</text>
+      </view>
+    </view>
+    <view class="user-detail">
+      <view class="detail-row">
+        <text class="detail-label">年龄</text>
+        <text class="detail-value">{{age}}岁</text>
+      </view>
+      <view class="detail-divider" />
+      <view class="detail-row">
+        <text class="detail-label">膝关节健康程度</text>
+        <text class="detail-value {{kneeLevel === '未知' ? 'value-unknown' : ''}}">{{kneeLevel}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 功能列表 -->
+  <view class="menu-card">
+    <view class="menu-item" bindtap="onMenuTap" data-key="training">
+      <text class="menu-label">训练记录</text>
+      <text class="menu-arrow">›</text>
+    </view>
+    <view class="menu-divider" />
+    <view class="menu-item" bindtap="onMenuTap" data-key="health">
+      <text class="menu-label">健康档案</text>
+      <text class="menu-arrow">›</text>
+    </view>
+    <view class="menu-divider" />
+    <view class="menu-item" bindtap="onMenuTap" data-key="settings">
+      <text class="menu-label">设置</text>
+      <text class="menu-arrow">›</text>
+    </view>
+  </view>
+
+  <!-- 绑定子女弹窗 -->
+  <view class="modal-mask" wx:if="{{showBindModal}}" bindtap="onCloseBindModal">
+    <view class="modal-content" catchtap="">
+      <text class="modal-title">绑定子女</text>
+      <text class="modal-desc">请让子女扫描下方二维码完成绑定</text>
+      <view class="qr-placeholder">
+        <view class="qr-fake">
+          <view class="qr-inner"></view>
+          <view class="qr-inner"></view>
+          <view class="qr-inner"></view>
+          <view class="qr-inner"></view>
+        </view>
+      </view>
+      <text class="modal-hint">点击弹窗外任意位置退出</text>
+    </view>
+  </view>
+
+</view>

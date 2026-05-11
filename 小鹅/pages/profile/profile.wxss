@@ -1,0 +1,245 @@
+/* pages/profile/profile.wxss */
+.profile-page {
+  min-height: 100vh;
+  background: linear-gradient(160deg, #fff5f0 0%, #ffeee6 60%, #ffd6c2 100%);
+  padding: 32rpx;
+  box-sizing: border-box;
+}
+
+/* 用户卡片 */
+.user-card {
+  background: #ffffff;
+  border-radius: 32rpx;
+  padding: 40rpx;
+  box-shadow: 0 8rpx 32rpx rgba(210, 100, 60, 0.10);
+  margin-bottom: 32rpx;
+}
+
+/* 上半部分：头像 + 姓名/性别 + 绑定子女 */
+.user-top {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 32rpx;
+}
+
+.avatar-wrap {
+  margin-right: 32rpx;
+}
+
+.avatar {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  border: 4rpx solid #f0d0b8;
+}
+
+.user-basic {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-name {
+  font-size: 36rpx;
+  font-weight: 700;
+  color: #3a2010;
+  margin-bottom: 8rpx;
+}
+
+.user-gender {
+  font-size: 26rpx;
+  color: #b07050;
+}
+
+/* 绑定子女按钮 */
+.bind-child {
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 12rpx 20rpx;
+  background: #fff5f0;
+  border: 2rpx solid #f0d0b8;
+  border-radius: 16rpx;
+}
+
+.bind-child-icon {
+  font-size: 36rpx;
+  color: #e87840;
+  line-height: 1;
+  margin-bottom: 4rpx;
+}
+
+.bind-child-text {
+  font-size: 20rpx;
+  color: #e87840;
+  white-space: nowrap;
+}
+
+/* 下半部分：年龄 + 膝关节健康程度 */
+.user-detail {
+  background: #fff8f4;
+  border-radius: 20rpx;
+  padding: 24rpx 32rpx;
+}
+
+.detail-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 72rpx;
+}
+
+.detail-label {
+  font-size: 28rpx;
+  color: #8a6050;
+}
+
+.detail-value {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #3a2010;
+}
+
+.detail-value.value-unknown {
+  color: #c0a090;
+  font-weight: 400;
+}
+
+.detail-divider {
+  height: 1rpx;
+  background: #f0e0d6;
+}
+
+/* 功能列表 */
+.menu-card {
+  background: #ffffff;
+  border-radius: 32rpx;
+  padding: 0 40rpx;
+  box-shadow: 0 8rpx 32rpx rgba(210, 100, 60, 0.10);
+  margin-bottom: 40rpx;
+}
+
+.menu-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 104rpx;
+}
+
+.menu-label {
+  font-size: 30rpx;
+  color: #3a2010;
+  font-weight: 500;
+}
+
+.menu-arrow {
+  font-size: 36rpx;
+  color: #d0b0a0;
+}
+
+.menu-divider {
+  height: 1rpx;
+  background: #f5ebe4;
+}
+
+/* 绑定子女弹窗 */
+.modal-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background: #ffffff;
+  border-radius: 32rpx;
+  padding: 56rpx 48rpx;
+  width: 580rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: modalIn 0.25s ease-out;
+}
+
+@keyframes modalIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.modal-title {
+  font-size: 36rpx;
+  font-weight: 700;
+  color: #3a2010;
+  margin-bottom: 16rpx;
+}
+
+.modal-desc {
+  font-size: 26rpx;
+  color: #8a6050;
+  margin-bottom: 40rpx;
+}
+
+/* 二维码占位 */
+.qr-placeholder {
+  width: 320rpx;
+  height: 320rpx;
+  background: #f8f4f0;
+  border: 4rpx dashed #e0c8b8;
+  border-radius: 16rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 32rpx;
+}
+
+.qr-fake {
+  width: 200rpx;
+  height: 200rpx;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  gap: 16rpx;
+}
+
+.qr-inner {
+  width: 40rpx;
+  height: 40rpx;
+  background: #3a2010;
+  border-radius: 4rpx;
+}
+
+.qr-inner:nth-child(2) {
+  opacity: 0.4;
+}
+
+.qr-inner:nth-child(3) {
+  opacity: 0.6;
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.qr-inner:nth-child(4) {
+  opacity: 0.3;
+}
+
+.modal-hint {
+  font-size: 22rpx;
+  color: #c0a090;
+}

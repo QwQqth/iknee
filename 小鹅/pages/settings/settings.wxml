@@ -1,0 +1,86 @@
+<!-- pages/settings/settings.wxml -->
+<scroll-view class="settings-page" scroll-y>
+
+  <!-- 账号 -->
+  <view class="section">
+    <text class="section-title">账号</text>
+    <view class="section-card">
+      <view class="setting-item">
+        <text class="setting-label">姓名</text>
+        <text class="setting-value">{{userName}}</text>
+      </view>
+      <view class="setting-divider" />
+      <view class="setting-item">
+        <text class="setting-label">性别</text>
+        <text class="setting-value">{{genderText}}</text>
+      </view>
+      <view class="setting-divider" />
+      <view class="setting-item">
+        <text class="setting-label">年龄</text>
+        <text class="setting-value">{{age}}岁</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 通用 -->
+  <view class="section">
+    <text class="section-title">通用</text>
+    <view class="section-card">
+      <view class="setting-item">
+        <text class="setting-label">消息通知</text>
+        <switch class="setting-switch" checked="{{notifyEnabled}}" color="#e87840" data-key="notifyEnabled" bindchange="onSwitchChange" />
+      </view>
+      <view class="setting-divider" />
+      <view class="setting-item">
+        <text class="setting-label">声音提醒</text>
+        <switch class="setting-switch" checked="{{soundEnabled}}" color="#e87840" data-key="soundEnabled" bindchange="onSwitchChange" />
+      </view>
+    </view>
+  </view>
+
+  <!-- 功能 -->
+  <view class="section">
+    <text class="section-title">功能</text>
+    <view class="section-card">
+      <view class="setting-item">
+        <text class="setting-label">自动记录训练</text>
+        <switch class="setting-switch" checked="{{autoRecord}}" color="#e87840" data-key="autoRecord" bindchange="onSwitchChange" />
+      </view>
+      <view class="setting-divider" />
+      <view class="setting-item" bindtap="onMenuTap">
+        <text class="setting-label">训练提醒时间</text>
+        <text class="setting-arrow">›</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 帮助与关于 -->
+  <view class="section">
+    <text class="section-title">帮助与关于</text>
+    <view class="section-card">
+      <view class="setting-item" bindtap="onHelp">
+        <text class="setting-label">帮助中心</text>
+        <text class="setting-arrow">›</text>
+      </view>
+      <view class="setting-divider" />
+      <view class="setting-item" bindtap="onAbout">
+        <text class="setting-label">关于小鹅</text>
+        <text class="setting-arrow">›</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 切换账号 / 退出登录 -->
+  <view class="section bottom-section">
+    <view class="section-card">
+      <view class="setting-item center" bindtap="onSwitchAccount">
+        <text class="setting-label action-text">切换账号</text>
+      </view>
+      <view class="setting-divider" />
+      <view class="setting-item center" bindtap="onLogout">
+        <text class="setting-label danger-text">退出登录</text>
+      </view>
+    </view>
+  </view>
+
+</scroll-view>

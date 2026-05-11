@@ -1,0 +1,89 @@
+/* custom-tab-bar/index.wxss */
+.tab-bar {
+  display: flex;
+  flex-direction: row;
+  height: 100rpx;
+  background: #ffffff;
+  border-top: 1rpx solid #f0e0d6;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.tab-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4rpx;
+}
+
+.tab-icon {
+  width: 48rpx;
+  height: 48rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===== 小房子图标 (CSS 绘制) ===== */
+.icon-home {
+  width: 36rpx;
+  height: 28rpx;
+  background: #b07050;
+  clip-path: polygon(50% 0%, 0% 60%, 20% 60%, 20% 100%, 80% 100%, 80% 60%, 100% 60%);
+  transition: background 0.2s;
+}
+
+.active .icon-home {
+  background: #e87840;
+}
+
+/* ===== 小人头像图标 (CSS 绘制) ===== */
+.icon-profile {
+  position: relative;
+  width: 36rpx;
+  height: 40rpx;
+}
+
+.icon-profile::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20rpx;
+  height: 20rpx;
+  border-radius: 50%;
+  background: #b07050;
+  transition: background 0.2s;
+}
+
+.icon-profile::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 32rpx;
+  height: 16rpx;
+  border-radius: 16rpx 16rpx 0 0;
+  background: #b07050;
+  transition: background 0.2s;
+}
+
+.active .icon-profile::before,
+.active .icon-profile::after {
+  background: #e87840;
+}
+
+/* ===== 文字 ===== */
+.tab-text {
+  font-size: 22rpx;
+  color: #b07050;
+  transition: color 0.2s;
+}
+
+.active .tab-text {
+  color: #e87840;
+  font-weight: 600;
+}

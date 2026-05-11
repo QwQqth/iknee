@@ -1,0 +1,77 @@
+/* pages/settings/settings.wxss */
+.settings-page {
+  height: 100vh;
+  background: linear-gradient(160deg, #fff5f0 0%, #ffeee6 60%, #ffd6c2 100%);
+}
+
+.section {
+  padding: 24rpx 32rpx 0;
+}
+
+.section-title {
+  font-size: 26rpx;
+  color: #b07050;
+  font-weight: 500;
+  margin-left: 8rpx;
+  margin-bottom: 12rpx;
+  display: block;
+}
+
+.section-card {
+  background: #ffffff;
+  border-radius: 24rpx;
+  padding: 0 36rpx;
+  box-shadow: 0 4rpx 24rpx rgba(210, 100, 60, 0.08);
+}
+
+.setting-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 100rpx;
+}
+
+.setting-item.center {
+  justify-content: center;
+}
+
+.setting-label {
+  font-size: 30rpx;
+  color: #3a2010;
+  font-weight: 500;
+}
+
+.setting-value {
+  font-size: 28rpx;
+  color: #8a6050;
+}
+
+.setting-arrow {
+  font-size: 36rpx;
+  color: #d0b0a0;
+}
+
+.setting-switch {
+  transform: scale(0.85);
+  transform-origin: right center;
+}
+
+.setting-divider {
+  height: 1rpx;
+  background: #f5ebe4;
+}
+
+/* 底部操作区 */
+.bottom-section {
+  margin-top: 24rpx;
+  padding-bottom: 60rpx;
+}
+
+.action-text {
+  color: #e87840;
+}
+
+.danger-text {
+  color: #d04040;
+}

@@ -1,0 +1,25 @@
+<!-- custom-tab-bar/index.wxml -->
+<view class="tab-bar">
+  <view
+    class="tab-item {{selected === 0 ? 'active' : ''}}"
+    bindtap="onSwitch"
+    data-index="0"
+  >
+    <view class="tab-icon">
+      <!-- 小房子 SVG 路径 -->
+      <view class="icon-home"></view>
+    </view>
+    <text class="tab-text">主页</text>
+  </view>
+  <view
+    class="tab-item {{selected === 1 ? 'active' : ''}}"
+    bindtap="onSwitch"
+    data-index="1"
+  >
+    <view class="tab-icon">
+      <!-- 小人头像 -->
+      <view class="icon-profile"></view>
+    </view>
+    <text class="tab-text">我的</text>
+  </view>
+</view>

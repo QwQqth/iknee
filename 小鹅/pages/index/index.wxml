@@ -1,0 +1,49 @@
+<!-- pages/index/index.wxml -->
+<view class="home-page">
+
+  <!-- 顶部企鹅横幅 -->
+  <view class="banner">
+    <image class="banner-penguin" src="/images/鹅1.png" mode="aspectFill" />
+    <view class="banner-text">
+      <text class="banner-title">科学健老 · 小鹅</text>
+      <text class="banner-sub">守护您的膝关节健康</text>
+    </view>
+  </view>
+
+  <!-- 企鹅小测评 -->
+  <view class="card" bindtap="onQuizTap">
+    <view class="card-left">
+      <view class="card-icon quiz-icon">📋</view>
+      <view class="card-info">
+        <text class="card-title">企鹅小测评</text>
+        <text class="card-desc">了解您的膝关节健康状况</text>
+      </view>
+    </view>
+    <text class="card-arrow">›</text>
+  </view>
+
+  <!-- 企鹅每日练 -->
+  <view class="card" bindtap="onDailyTap">
+    <view class="card-left">
+      <view class="card-icon daily-icon">💪</view>
+      <view class="card-info">
+        <text class="card-title">企鹅每日练</text>
+        <text class="card-desc">每日膝关节保健训练</text>
+      </view>
+    </view>
+    <text class="card-arrow">›</text>
+  </view>
+
+  <!-- 企鹅视频号 -->
+  <view class="card" bindtap="onVideoTap">
+    <view class="card-left">
+      <view class="card-icon video-icon">🎬</view>
+      <view class="card-info">
+        <text class="card-title">企鹅视频号</text>
+        <text class="card-desc">膝关节健康科普视频</text>
+      </view>
+    </view>
+    <text class="card-arrow">›</text>
+  </view>
+
+</view>
