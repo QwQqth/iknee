@@ -1,0 +1,82 @@
+<!-- 小鹅(iKnee) - 训练页 -->
+<view class="training-page">
+  <!-- 头部信息 -->
+  <view class="header">
+    <view class="header-left">
+      <text class="title">每日训练</text>
+      <text class="subtitle">{{todayDate}}</text>
+    </view>
+    <view class="header-right">
+      <text class="progress-text">已完成 {{completedCount}}/6</text>
+    </view>
+  </view>
+
+  <!-- 进度条 -->
+  <view class="progress-bar">
+    <view class="progress-fill" style="width: {{progressPercent}}%"></view>
+  </view>
+
+  <!-- 关卡列表 -->
+  <view class="levels-section">
+    <text class="section-title">训练关卡</text>
+    <view class="levels-grid">
+      <view 
+        class="level-item {{item.unlocked ? '' : 'locked'}}"
+        wx:for="{{levels}}"
+        wx:key="id"
+        bindtap="onLevelTap"
+        data-level="{{item}}"
+      >
+        <!-- 关卡卡片 -->
+        <view class="level-card {{item.completed ? 'completed' : ''}}">
+          <!-- 锁定图标 -->
+          <view class="lock-icon" wx:if="{{!item.unlocked}}">
+            <text>🔒</text>
+          </view>
+
+          <!-- 关卡号 -->
+          <view class="level-number">{{index + 1}}</view>
+
+          <!-- 关卡名称 -->
+          <text class="level-name">{{item.name}}</text>
+
+          <!-- 动作类型 -->
+          <text class="level-action">{{item.actionName}}</text>
+
+          <!-- 完成状态 -->
+          <view class="level-status">
+            <!-- 星星 -->
+            <view class="stars" wx:if="{{item.unlocked}}">
+              <text 
+                wx:for="{{3}}" 
+                wx:for-item="star"
+                wx:key="star"
+                class="star {{item.starCount >= star ? 'earned' : ''}}"
+              >⭐</text>
+            </view>
+            <!-- 完成标记 -->
+            <view class="complete-mark" wx:if="{{item.completed}}">
+              <text>✓</text>
+            </view>
+          </view>
+        </view>
+
+        <!-- 任务描述 -->
+        <view class="level-desc">
+          <text>{{item.subtitle}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 小企鹅提示 -->
+  <view class="penguin-tip">
+    <image class="tip-penguin" src="/assets/images/penguin/penguin-tip.png" mode="aspectFit" />
+    <view class="tip-bubble">
+      <text>{{penguinTip}}</text>
+    </view>
+  </view>
+
+  <!-- TabBar占位 -->
+  <view class="tabbar-placeholder"></view>
+</view>

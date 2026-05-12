@@ -1,0 +1,75 @@
+<!-- 小鹅(iKnee) - 家人绑定页 -->
+<view class="bind-page">
+  <!-- 说明 -->
+  <view class="intro-card">
+    <image class="intro-icon" src="/assets/images/icons/family.png" mode="aspectFit" />
+    <text class="intro-title">家人绑定功能</text>
+    <text class="intro-desc">绑定家人后，他们可以远程查看您的训练记录和健康报告，关心您的膝关节健康。</text>
+  </view>
+
+  <!-- 已绑定家人 -->
+  <view class="bind-section" wx:if="{{boundFamilies.length > 0}}">
+    <view class="section-header">
+      <text class="section-title">已绑定家人</text>
+    </view>
+    <view class="family-list">
+      <view class="family-item" wx:for="{{boundFamilies}}" wx:key="id">
+        <view class="family-avatar">
+          <image src="{{item.avatar || '/assets/images/default-avatar.png'}}" mode="aspectFill" />
+        </view>
+        <view class="family-info">
+          <text class="family-name">{{item.name}}</text>
+          <text class="family-relation">{{item.relation}}</text>
+        </view>
+        <view class="family-action">
+          <text class="unbind-btn" bindtap="onUnbind" data-id="{{item.id}}">解除</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 添加绑定 -->
+  <view class="bind-section">
+    <view class="section-header">
+      <text class="section-title">添加绑定</text>
+    </view>
+
+    <!-- 扫码绑定 -->
+    <view class="bind-method" bindtap="onScanBind">
+      <view class="method-icon">
+        <text>📷</text>
+      </view>
+      <view class="method-info">
+        <text class="method-title">扫描二维码</text>
+        <text class="method-desc">让家人扫描您的绑定码</text>
+      </view>
+      <text class="method-arrow">></text>
+    </view>
+
+    <!-- 输入码绑定 -->
+    <view class="bind-method" bindtap="onCodeBind">
+      <view class="method-icon">
+        <text>🔢</text>
+      </view>
+      <view class="method-info">
+        <text class="method-title">输入绑定码</text>
+        <text class="method-desc">输入家人分享的绑定码</text>
+      </view>
+      <text class="method-arrow">></text>
+    </view>
+  </view>
+
+  <!-- 我的绑定码 -->
+  <view class="bind-section">
+    <view class="section-header">
+      <text class="section-title">我的绑定码</text>
+    </view>
+    <view class="qrcode-section">
+      <view class="qrcode-box">
+        <image class="qrcode" src="{{qrcodeUrl}}" mode="aspectFit" />
+      </view>
+      <text class="qrcode-hint">让家人扫描上方二维码绑定</text>
+      <button class="btn btn-secondary" bindtap="onCopyCode">复制绑定码</button>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "level-card": "/components/level-card/level-card"
+  },
+  "navigationBarTitleText": "企鹅每日练",
+  "enablePullDownRefresh": true
+}

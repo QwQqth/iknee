@@ -1,0 +1,357 @@
+/* 小鹅(iKnee) - 首页样式 */
+
+.home-page {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #E8F4FD 0%, #C5E1F5 100%);
+  padding-bottom: 140rpx;
+}
+
+/* 顶部区域 */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 32rpx;
+  padding-top: calc(20rpx + env(safe-area-inset-top));
+}
+
+.energy-stars {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 12rpx 24rpx;
+  border-radius: 30rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1);
+}
+
+.star-icon {
+  width: 36rpx;
+  height: 36rpx;
+  margin-right: 8rpx;
+}
+
+.star-count {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #FF9F43;
+}
+
+.user-info {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 12rpx 24rpx;
+  border-radius: 30rpx;
+}
+
+.user-greeting {
+  font-size: 28rpx;
+  color: #333;
+}
+
+/* 家园场景 */
+.home-scene {
+  position: relative;
+  height: 400rpx;
+  margin: 20rpx 32rpx;
+  border-radius: 32rpx;
+  overflow: hidden;
+  background: linear-gradient(180deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+}
+
+/* 背景层 */
+.scene-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.snow-ground {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120rpx;
+  background: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.1));
+}
+
+.aurora {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 200rpx;
+  background: linear-gradient(90deg, 
+    rgba(0, 255, 128, 0.1), 
+    rgba(0, 200, 255, 0.15), 
+    rgba(138, 43, 226, 0.1), 
+    rgba(0, 200, 255, 0.15),
+    rgba(0, 255, 128, 0.1)
+  );
+  animation: auroraMove 10s ease-in-out infinite;
+}
+
+@keyframes auroraMove {
+  0%, 100% { transform: translateX(-10%); opacity: 0.5; }
+  50% { transform: translateX(10%); opacity: 0.8; }
+}
+
+/* 建筑层 */
+.buildings {
+  position: absolute;
+  bottom: 100rpx;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  padding: 0 40rpx;
+}
+
+.building {
+  opacity: 0.3;
+  transition: opacity 0.3s ease;
+}
+
+.building.unlocked {
+  opacity: 1;
+}
+
+.building image {
+  width: 120rpx;
+  height: 120rpx;
+}
+
+.icehouse image { width: 100rpx; height: 100rpx; }
+.fireplace image { width: 80rpx; height: 80rpx; }
+.fispond image { width: 100rpx; height: 80rpx; }
+
+/* 小企鹅 */
+.penguin-home {
+  position: absolute;
+  bottom: 80rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.penguin-main {
+  width: 160rpx;
+  height: 160rpx;
+  animation: floatUp 2s ease-in-out infinite;
+}
+
+.penguin-action {
+  position: absolute;
+  top: -20rpx;
+  right: -40rpx;
+}
+
+.penguin-emotion {
+  font-size: 40rpx;
+  display: inline-block;
+  animation: bounce 1s ease infinite;
+}
+
+@keyframes floatUp {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10rpx); }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+/* 今日任务 */
+.today-task {
+  position: absolute;
+  top: 30rpx;
+  right: 30rpx;
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 16rpx 24rpx;
+  border-radius: 24rpx;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.15);
+}
+
+.task-bubble {
+  display: flex;
+  flex-direction: column;
+  margin-right: 12rpx;
+}
+
+.task-label {
+  font-size: 24rpx;
+  color: #666;
+}
+
+.task-progress {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #FF9F43;
+}
+
+.task-arrow {
+  color: #FF9F43;
+  font-size: 28rpx;
+}
+
+/* 健康日历 */
+.calendar-section {
+  background: #fff;
+  margin: 20rpx 32rpx;
+  padding: 24rpx;
+  border-radius: 24rpx;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.08);
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.calendar-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.calendar-month {
+  font-size: 26rpx;
+  color: #999;
+}
+
+.calendar-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8rpx;
+}
+
+.calendar-day {
+  width: calc(14.28% - 8rpx);
+  aspect-ratio: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 26rpx;
+  color: #999;
+  border-radius: 50%;
+}
+
+.calendar-day.stamped-perfect {
+  background: linear-gradient(135deg, #FFD700, #FFA500);
+  color: #fff;
+}
+
+.calendar-day.stamped-good {
+  background: linear-gradient(135deg, #87CEEB, #B0E0E6);
+  color: #fff;
+}
+
+.calendar-day.stamped-normal {
+  background: #E0E0E0;
+  color: #666;
+}
+
+/* 快捷入口 */
+.quick-actions {
+  display: flex;
+  justify-content: space-between;
+  margin: 20rpx 32rpx;
+  gap: 16rpx;
+}
+
+.action-card {
+  flex: 1;
+  background: #fff;
+  padding: 24rpx 16rpx;
+  border-radius: 20rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.08);
+}
+
+.action-icon {
+  width: 64rpx;
+  height: 64rpx;
+  margin-bottom: 12rpx;
+}
+
+.action-text {
+  font-size: 26rpx;
+  color: #333;
+  text-align: center;
+}
+
+/* 膝关节评分 */
+.score-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(135deg, var(--primary), #FFB366);
+  margin: 20rpx 32rpx;
+  padding: 32rpx;
+  border-radius: 24rpx;
+  color: #fff;
+}
+
+.score-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.score-label {
+  font-size: 28rpx;
+  opacity: 0.9;
+  margin-bottom: 8rpx;
+}
+
+.score-value {
+  font-size: 72rpx;
+  font-weight: bold;
+}
+
+.score-value.excellent { color: #FFD700; }
+.score-value.good { color: #26DE81; }
+.score-value.normal { color: #87CEEB; }
+
+.score-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.score-ring {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  border: 8rpx solid rgba(255, 255, 255, 0.3);
+  position: relative;
+  margin-bottom: 8rpx;
+}
+
+.score-progress {
+  position: absolute;
+  top: -8rpx;
+  left: -8rpx;
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  border: 8rpx solid transparent;
+  border-top-color: #fff;
+}
+
+.score-status {
+  font-size: 24rpx;
+  opacity: 0.9;
+}
+
+/* TabBar占位 */
+.tabbar-placeholder {
+  height: 120rpx;
+}

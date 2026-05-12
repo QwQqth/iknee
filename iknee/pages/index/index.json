@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "penguin-ip": "/components/penguin-ip/penguin-ip",
+    "level-card": "/components/level-card/level-card"
+  },
+  "navigationBarTitleText": "我的极地家园"
+}

@@ -1,0 +1,202 @@
+/* components/level-card/level-card.wxss */
+
+/* 基础卡片样式 */
+.level-card {
+  display: flex;
+  align-items: center;
+  background: linear-gradient(135deg, #FFFFFF 0%, #F8F9FA 100%);
+  border-radius: 16px;
+  padding: 24rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 左侧装饰条 */
+.level-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 8rpx;
+  background: linear-gradient(180deg, #FF9F43 0%, #FFB366 100%);
+}
+
+/* 完成状态 */
+.level-card.completed::before {
+  background: linear-gradient(180deg, #52C41A 0%, #73D13D 100%);
+}
+
+/* 锁定状态 */
+.level-card.locked {
+  opacity: 0.7;
+  background: #F5F5F5;
+}
+
+.level-card.locked::before {
+  background: #CCC;
+}
+
+/* 点击效果 */
+.level-card:active {
+  transform: scale(0.98);
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.1);
+}
+
+/* 关卡图标区域 */
+.level-icon {
+  position: relative;
+  width: 120rpx;
+  height: 120rpx;
+  flex-shrink: 0;
+}
+
+.icon-bg {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #FF9F43 0%, #FFB366 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4rpx 12rpx rgba(255, 159, 67, 0.4);
+}
+
+.level-card.completed .icon-bg {
+  background: linear-gradient(135deg, #52C41A 0%, #73D13D 100%);
+  box-shadow: 0 4rpx 12rpx rgba(82, 196, 26, 0.4);
+}
+
+.level-card.locked .icon-bg {
+  background: linear-gradient(135deg, #CCC 0%, #DDD 100%);
+  box-shadow: none;
+}
+
+.level-number {
+  font-size: 48rpx;
+  font-weight: bold;
+  color: #FFF;
+}
+
+/* 锁定遮罩 */
+.lock-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 50%;
+  width: 80rpx;
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-lock {
+  font-size: 36rpx;
+}
+
+/* 完成徽章 */
+.complete-badge {
+  position: absolute;
+  top: -10rpx;
+  right: -10rpx;
+  background: #FFD700;
+  border-radius: 50%;
+  width: 40rpx;
+  height: 40rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.2);
+}
+
+/* 关卡信息 */
+.level-info {
+  flex: 1;
+  margin-left: 24rpx;
+  display: flex;
+  flex-direction: column;
+  gap: 8rpx;
+}
+
+.level-name {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.level-card.locked .level-name {
+  color: #999;
+}
+
+.level-desc {
+  font-size: 24rpx;
+  color: #666;
+  line-height: 1.4;
+}
+
+.level-card.locked .level-desc {
+  color: #AAA;
+}
+
+/* 星星评分 */
+.stars-row {
+  display: flex;
+  gap: 8rpx;
+  margin-top: 8rpx;
+}
+
+.star {
+  font-size: 28rpx;
+  color: #DDD;
+}
+
+.star.active {
+  color: #FFD700;
+}
+
+/* 最佳成绩 */
+.best-score {
+  font-size: 22rpx;
+  color: #52C41A;
+  margin-top: 4rpx;
+}
+
+/* 进入按钮 */
+.enter-btn {
+  display: flex;
+  align-items: center;
+  gap: 4rpx;
+  background: linear-gradient(135deg, #FF9F43 0%, #FFB366 100%);
+  border-radius: 30rpx;
+  padding: 16rpx 28rpx;
+  box-shadow: 0 4rpx 12rpx rgba(255, 159, 67, 0.4);
+}
+
+.level-card.completed .enter-btn {
+  background: linear-gradient(135deg, #52C41A 0%, #73D13D 100%);
+  box-shadow: 0 4rpx 12rpx rgba(82, 196, 26, 0.4);
+}
+
+.level-card.locked .enter-btn {
+  background: linear-gradient(135deg, #CCC 0%, #DDD 100%);
+  box-shadow: none;
+}
+
+.btn-text {
+  font-size: 26rpx;
+  font-weight: bold;
+  color: #FFF;
+}
+
+.arrow {
+  font-size: 28rpx;
+  color: #FFF;
+  font-weight: bold;
+}

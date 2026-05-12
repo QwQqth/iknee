@@ -1,0 +1,43 @@
+<!-- components/level-card/level-card.wxml -->
+<view class="level-card {{locked ? 'locked' : ''}} {{completed ? 'completed' : ''}}" bindtap="onTap">
+  <!-- 关卡图标区域 -->
+  <view class="level-icon">
+    <view class="icon-bg">
+      <text class="level-number">{{levelNumber}}</text>
+    </view>
+    
+    <!-- 锁定图标 -->
+    <view class="lock-overlay" wx:if="{{locked}}">
+      <text class="iconfont icon-lock">🔒</text>
+    </view>
+    
+    <!-- 完成勾选 -->
+    <view class="complete-badge" wx:if="{{completed && stars >= 3}}">
+      <text class="iconfont icon-star">⭐</text>
+    </view>
+  </view>
+  
+  <!-- 关卡信息 -->
+  <view class="level-info">
+    <text class="level-name">{{name}}</text>
+    <text class="level-desc">{{description}}</text>
+    
+    <!-- 星星评分 -->
+    <view class="stars-row" wx:if="{{!locked}}">
+      <block wx:for="{{3}}" wx:key="*this">
+        <text class="star {{index < stars ? 'active' : ''}}">★</text>
+      </block>
+    </view>
+    
+    <!-- 最佳成绩 -->
+    <text class="best-score" wx:if="{{completed && bestScore > 0}}">
+      最佳: {{bestScore}}分
+    </text>
+  </view>
+  
+  <!-- 进入按钮 -->
+  <view class="enter-btn" wx:if="{{!locked}}">
+    <text class="btn-text">开始</text>
+    <text class="arrow">›</text>
+  </view>
+</view>

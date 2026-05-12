@@ -1,0 +1,70 @@
+<!-- 小鹅(iKnee) - 设置页 -->
+<view class="settings-page">
+  <!-- 声音设置 -->
+  <view class="setting-section">
+    <view class="section-title">声音设置</view>
+    <view class="setting-item">
+      <text class="setting-label">语音提示</text>
+      <switch checked bindchange="onVoiceChange" color="#FF9F43" />
+    </view>
+    <view class="setting-item">
+      <text class="setting-label">音量</text>
+      <slider 
+        min="0" 
+        max="100" 
+        value="{{volume}}" 
+        bindchange="onVolumeChange"
+        show-value
+        activeColor="#FF9F43"
+      />
+    </view>
+  </view>
+
+  <!-- 显示设置 -->
+  <view class="setting-section">
+    <view class="section-title">显示设置</view>
+    <view class="setting-item">
+      <text class="setting-label">字体大小</text>
+      <picker bindchange="onFontSizeChange" value="{{fontIndex}}" range="{{fontSizes}}">
+        <view class="picker-value">{{fontSizes[fontIndex]}}</view>
+      </picker>
+    </view>
+  </view>
+
+  <!-- 隐私设置 -->
+  <view class="setting-section">
+    <view class="section-title">隐私设置</view>
+    <view class="setting-item" bindtap="onPrivacy">
+      <text class="setting-label">隐私政策</text>
+      <text class="setting-arrow">></text>
+    </view>
+    <view class="setting-item" bindtap="onTerms">
+      <text class="setting-label">用户协议</text>
+      <text class="setting-arrow">></text>
+    </view>
+  </view>
+
+  <!-- 其他 -->
+  <view class="setting-section">
+    <view class="section-title">其他</view>
+    <view class="setting-item" bindtap="onClearCache">
+      <text class="setting-label">清除缓存</text>
+      <text class="setting-value">12.5MB</text>
+    </view>
+    <view class="setting-item" bindtap="onCheckUpdate">
+      <text class="setting-label">检查更新</text>
+      <text class="setting-value">已是最新</text>
+    </view>
+  </view>
+
+  <!-- 退出登录 -->
+  <button class="btn btn-secondary logout-btn" bindtap="onLogout">
+    退出登录
+  </button>
+
+  <!-- 版本信息 -->
+  <view class="version">
+    <text>小鹅抗腿队 v1.0.0</text>
+    <text>腾讯公益项目</text>
+  </view>
+</view>

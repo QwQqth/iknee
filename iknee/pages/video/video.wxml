@@ -1,0 +1,43 @@
+<!-- 小鹅(iKnee) - 视频详情页 -->
+<view class="video-page">
+  <!-- 视频播放器 -->
+  <view class="video-container">
+    <video 
+      class="video-player"
+      src="{{videoUrl}}"
+      controls
+      show-center-play-btn
+      enable-progress-gesture
+      poster="{{video.poster}}"
+    />
+  </view>
+
+  <!-- 视频信息 -->
+  <view class="video-info">
+    <text class="video-title">{{video.title}}</text>
+    <view class="video-meta">
+      <text class="meta-item">{{video.views}}次观看</text>
+      <text class="meta-item">{{video.duration}}</text>
+    </view>
+  </view>
+
+  <!-- 相关推荐 -->
+  <view class="recommend-section">
+    <text class="section-title">相关推荐</text>
+    <view class="recommend-list">
+      <view 
+        class="recommend-item"
+        wx:for="{{recommends}}"
+        wx:key="id"
+        bindtap="onRecommendTap"
+        data-id="{{item.id}}"
+      >
+        <image class="recommend-cover" src="{{item.poster}}" mode="aspectFill" />
+        <view class="recommend-info">
+          <text class="recommend-title">{{item.title}}</text>
+          <text class="recommend-views">{{item.views}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

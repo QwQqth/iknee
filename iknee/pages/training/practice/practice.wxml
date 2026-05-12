@@ -1,0 +1,149 @@
+<!-- 小鹅(iKnee) - AI练习页 
+     核心功能：摄像头捕捉、姿态检测、实时反馈
+-->
+<view class="practice-page">
+  <!-- 顶部状态栏 -->
+  <view class="top-bar">
+    <!-- 返回按钮 -->
+    <view class="back-btn" bindtap="onBack">
+      <text class="back-icon">←</text>
+    </view>
+    <!-- 进度 -->
+    <view class="progress-info">
+      <text class="level-name">{{levelName}}</text>
+      <text class="progress-text">进度: {{currentCount}}/{{targetCount}}</text>
+    </view>
+    <!-- 关闭 -->
+    <view class="close-btn" bindtap="onClose">
+      <text>×</text>
+    </view>
+  </view>
+
+  <!-- 主内容区域 -->
+  <view class="main-content">
+    <!-- 阶段1: 情境动画/视频学习 -->
+    <view class="phase-video" wx:if="{{phase === 'video'}}">
+      <!-- 视频播放器 -->
+      <video 
+        class="demo-video"
+        src="{{videoUrl}}"
+        controls
+        show-center-play-btn
+        enable-progress-gesture
+        bindended="onVideoEnd"
+      ></video>
+
+      <!-- 企鹅确认 -->
+      <view class="penguin-confirm">
+        <image class="penguin-speaking" src="/assets/images/penguin/penguin-speaking.png" mode="aspectFit" />
+        <view class="confirm-bubble">
+          <text>{{penguinMessage}}</text>
+        </view>
+      </view>
+
+      <!-- 操作按钮 -->
+      <view class="video-actions">
+        <button class="btn btn-secondary btn-large" bindtap="onReplayVideo">
+          <text>没学会，再看一遍</text>
+        </button>
+        <button class="btn btn-primary btn-large" bindtap="onStartPractice">
+          <text>学会了，开始练习</text>
+        </button>
+      </view>
+    </view>
+
+    <!-- 阶段2: AI练习 -->
+    <view class="phase-practice" wx:if="{{phase === 'practice'}}">
+      <!-- 背景场景 -->
+      <view class="scene-bg level-{{levelId}}">
+        <view class="game-progress">
+          <view class="progress-bar-outer">
+            <view class="progress-bar-inner" style="width: {{gameProgress}}%"></view>
+          </view>
+        </view>
+      </view>
+
+      <!-- 摄像头画面 -->
+      <view class="camera-container">
+        <camera 
+          class="camera"
+          device-position="front"
+          flash="off"
+          binderror="onCameraError"
+        />
+        <!-- 骨骼叠加层 -->
+        <canvas class="skeleton-canvas" type="2d" canvas-id="skeletonCanvas" />
+      </view>
+
+      <!-- 小企鹅 -->
+      <view class="penguin-companion">
+        <image class="penguin-action" src="/assets/images/penguin/penguin-{{penguinState}}.png" mode="aspectFit" />
+        <view class="penguin-emotion {{penguinState}}">
+          <text>{{penguinEmoji}}</text>
+        </view>
+      </view>
+
+      <!-- 动作计数 -->
+      <view class="action-counter">
+        <view class="counter-ring">
+          <text class="counter-num">{{currentCount}}</text>
+          <text class="counter-total">/{{targetCount}}</text>
+        </view>
+      </view>
+
+      <!-- 实时反馈 -->
+      <view class="feedback-toast {{feedbackVisible ? 'show' : ''}}">
+        <text class="feedback-text">{{feedbackText}}</text>
+      </view>
+
+      <!-- 开始提示 -->
+      <view class="start-hint" wx:if="{{showStartHint}}">
+        <text>请站在镜头前</text>
+        <text class="hint-sub">保持全身可见</text>
+      </view>
+    </view>
+
+    <!-- 阶段3: 通关结果 -->
+    <view class="phase-result" wx:if="{{phase === 'result'}}">
+      <!-- 结果动画 -->
+      <view class="result-animation">
+        <view class="stars-rain">
+          <text wx:for="{{resultStars}}" wx:key="index">⭐</text>
+        </view>
+        <view class="result-score">
+          <text class="score-num">{{resultScore}}</text>
+          <text class="score-label">分</text>
+        </view>
+      </view>
+
+      <!-- 企鹅庆祝 -->
+      <view class="penguin-result">
+        <image src="/assets/images/penguin/penguin-celebrate.png" mode="aspectFit" />
+      </view>
+
+      <!-- 结果消息 -->
+      <view class="result-message">
+        <text>{{resultMessage}}</text>
+      </view>
+
+      <!-- 操作按钮 -->
+      <view class="result-actions">
+        <button class="btn btn-secondary btn-large" bindtap="onRetry">
+          <text>再练一次</text>
+        </button>
+        <button class="btn btn-primary btn-large" bindtap="onGoHome">
+          <text>返回首页</text>
+        </button>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部操作区 -->
+  <view class="bottom-actions">
+    <!-- 开始/停止按钮 -->
+    <view class="main-btn {{isRecording ? 'recording' : ''}}" bindtap="togglePractice">
+      <text class="btn-icon">{{isRecording ? '⏹' : '▶'}}</text>
+      <text class="btn-text">{{isRecording ? '停止' : '开始'}}</text>
+    </view>
+  </view>
+</view>

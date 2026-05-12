@@ -1,0 +1,20 @@
+<!-- 小鹅(iKnee) - 小企鹅IP组件 -->
+<view class="penguin-wrapper {{size}}">
+  <!-- 企鹅主体 -->
+  <view class="penguin-body">
+    <image 
+      class="penguin-img" 
+      src="{{currentImage}}" 
+      mode="aspectFit"
+      bindtap="onTap"
+    />
+  </view>
+
+  <!-- 表情气泡 -->
+  <view class="emotion-bubble {{showBubble ? 'show' : ''}}" wx:if="{{message}}">
+    <text>{{message}}</text>
+  </view>
+
+  <!-- 动画效果 -->
+  <view class="penguin-action {{actionClass}}" wx:if="{{actionClass}}"></view>
+</view>

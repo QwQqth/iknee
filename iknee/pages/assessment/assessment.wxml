@@ -1,0 +1,73 @@
+<!-- 小鹅(iKnee) - 测评页 -->
+<view class="assessment-page">
+  <!-- 说明卡片 -->
+  <view class="info-card">
+    <view class="info-icon">📋</view>
+    <view class="info-content">
+      <text class="info-title">膝关节健康评估</text>
+      <text class="info-desc">通过简单的动作测试，了解您的膝关节健康状况，获得个性化训练建议。</text>
+    </view>
+  </view>
+
+  <!-- 历史评分 -->
+  <view class="score-section" wx:if="{{hasHistory}}">
+    <view class="score-header">
+      <text class="section-title">上次评分</text>
+      <text class="score-date">{{lastScore.date}}</text>
+    </view>
+    <view class="score-display">
+      <view class="score-ring">
+        <text class="score-num">{{lastScore.score}}</text>
+      </view>
+      <view class="score-info">
+        <text class="score-level">{{lastScore.level}}</text>
+        <text class="score-advice">{{lastScore.advice}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 开始测评 -->
+  <view class="start-section">
+    <button class="btn btn-primary btn-large start-btn" bindtap="onStartAssessment">
+      <text>开始测评</text>
+    </button>
+    <text class="start-hint">约3-5分钟</text>
+  </view>
+
+  <!-- 测评项目 -->
+  <view class="test-items">
+    <text class="section-title">测评项目</text>
+    <view class="item-list">
+      <view class="item">
+        <text class="item-num">1</text>
+        <view class="item-content">
+          <text class="item-title">柔韧性测试</text>
+          <text class="item-desc">坐姿体前屈，观察关节活动度</text>
+        </view>
+      </view>
+      <view class="item">
+        <text class="item-num">2</text>
+        <view class="item-content">
+          <text class="item-title">力量测试</text>
+          <text class="item-desc">靠墙静蹲，评估腿部肌肉力量</text>
+        </view>
+      </view>
+      <view class="item">
+        <text class="item-num">3</text>
+        <view class="item-content">
+          <text class="item-title">稳定性测试</text>
+          <text class="item-desc">单腿站立，检测平衡能力</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 注意事项 -->
+  <view class="notice-section">
+    <text class="notice-title">注意事项</text>
+    <text class="notice-text">• 请穿着舒适的运动服装</text>
+    <text class="notice-text">• 选择安全、空旷的场地</text>
+    <text class="notice-text">• 如有不适请立即停止</text>
+    <text class="notice-text">• 如有严重膝关节疾病，请遵医嘱</text>
+  </view>
+</view>

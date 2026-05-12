@@ -1,0 +1,400 @@
+/* 小鹅(iKnee) - AI练习页样式 */
+
+.practice-page {
+  height: 100vh;
+  background: #1a1a2e;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 顶部状态栏 */
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 32rpx;
+  padding-top: calc(20rpx + env(safe-area-inset-top));
+  background: rgba(0, 0, 0, 0.3);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+.back-btn, .close-btn {
+  width: 64rpx;
+  height: 64rpx;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 36rpx;
+}
+
+.progress-info {
+  text-align: center;
+}
+
+.level-name {
+  display: block;
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #fff;
+}
+
+.progress-text {
+  display: block;
+  font-size: 24rpx;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* 主内容区 */
+.main-content {
+  flex: 1;
+  position: relative;
+}
+
+/* ========== 阶段1: 视频学习 ========== */
+.phase-video {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 120rpx 32rpx 200rpx;
+  background: linear-gradient(180deg, #E8F4FD 0%, #C5E1F5 100%);
+}
+
+.demo-video {
+  flex: 1;
+  width: 100%;
+  border-radius: 24rpx;
+  background: #000;
+}
+
+.penguin-confirm {
+  display: flex;
+  align-items: center;
+  margin: 32rpx 0;
+  background: #fff;
+  padding: 24rpx;
+  border-radius: 24rpx;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.1);
+}
+
+.penguin-speaking {
+  width: 100rpx;
+  height: 100rpx;
+  margin-right: 20rpx;
+}
+
+.confirm-bubble {
+  flex: 1;
+}
+
+.confirm-bubble text {
+  font-size: 32rpx;
+  color: #333;
+  line-height: 1.5;
+}
+
+.video-actions {
+  display: flex;
+  gap: 24rpx;
+}
+
+.video-actions .btn {
+  flex: 1;
+}
+
+/* ========== 阶段2: AI练习 ========== */
+.phase-practice {
+  height: 100%;
+  position: relative;
+}
+
+.scene-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+}
+
+.game-progress {
+  position: absolute;
+  top: 120rpx;
+  left: 32rpx;
+  right: 32rpx;
+}
+
+.progress-bar-outer {
+  height: 16rpx;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 8rpx;
+  overflow: hidden;
+}
+
+.progress-bar-inner {
+  height: 100%;
+  background: linear-gradient(90deg, #FF9F43, #FECA57);
+  border-radius: 8rpx;
+  transition: width 0.3s ease;
+}
+
+/* 摄像头 */
+.camera-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300rpx;
+  height: 400rpx;
+  border-radius: 200rpx 200rpx 200rpx 200rpx;
+  overflow: hidden;
+  border: 4rpx solid rgba(255, 255, 255, 0.3);
+}
+
+.camera {
+  width: 100%;
+  height: 100%;
+}
+
+.skeleton-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* 小企鹅 */
+.penguin-companion {
+  position: absolute;
+  bottom: 300rpx;
+  right: 40rpx;
+  text-align: center;
+}
+
+.penguin-action {
+  width: 120rpx;
+  height: 120rpx;
+  animation: floatUp 2s ease-in-out infinite;
+}
+
+.penguin-emotion {
+  font-size: 48rpx;
+  position: absolute;
+  top: -20rpx;
+  right: -20rpx;
+  animation: bounce 0.5s ease infinite;
+}
+
+/* 动作计数 */
+.action-counter {
+  position: absolute;
+  bottom: 250rpx;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.counter-ring {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  width: 150rpx;
+  height: 150rpx;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  box-shadow: 0 8rpx 32rpx rgba(0, 0, 0, 0.2);
+}
+
+.counter-num {
+  font-size: 72rpx;
+  font-weight: bold;
+  color: var(--primary);
+}
+
+.counter-total {
+  font-size: 32rpx;
+  color: #999;
+}
+
+/* 反馈提示 */
+.feedback-toast {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.95);
+  padding: 24rpx 48rpx;
+  border-radius: 40rpx;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.feedback-toast.show {
+  opacity: 1;
+}
+
+.feedback-text {
+  font-size: 36rpx;
+  color: #333;
+  font-weight: bold;
+}
+
+/* 开始提示 */
+.start-hint {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 32rpx 48rpx;
+  border-radius: 24rpx;
+}
+
+.start-hint text {
+  display: block;
+  font-size: 36rpx;
+  color: #fff;
+}
+
+.hint-sub {
+  font-size: 28rpx;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 8rpx;
+}
+
+/* ========== 阶段3: 结果 ========== */
+.phase-result {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%);
+  padding: 120rpx 32rpx;
+}
+
+.result-animation {
+  text-align: center;
+  margin-bottom: 40rpx;
+}
+
+.stars-rain {
+  font-size: 80rpx;
+  margin-bottom: 20rpx;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.result-score {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+}
+
+.score-num {
+  font-size: 120rpx;
+  font-weight: bold;
+  color: #FFD700;
+}
+
+.score-label {
+  font-size: 48rpx;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.penguin-result {
+  margin-bottom: 40rpx;
+}
+
+.penguin-result image {
+  width: 200rpx;
+  height: 200rpx;
+  animation: celebrate 0.5s ease infinite;
+}
+
+@keyframes celebrate {
+  0%, 100% { transform: translateY(0) rotate(-5deg); }
+  50% { transform: translateY(-20rpx) rotate(5deg); }
+}
+
+.result-message {
+  text-align: center;
+  margin-bottom: 60rpx;
+}
+
+.result-message text {
+  font-size: 36rpx;
+  color: #fff;
+}
+
+.result-actions {
+  display: flex;
+  gap: 24rpx;
+  width: 100%;
+}
+
+.result-actions .btn {
+  flex: 1;
+}
+
+/* ========== 底部操作区 ========== */
+.bottom-actions {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 32rpx;
+  padding-bottom: calc(32rpx + env(safe-area-inset-bottom));
+  display: flex;
+  justify-content: center;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.5));
+}
+
+.main-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 160rpx;
+  height: 160rpx;
+  background: linear-gradient(135deg, var(--primary), #FFB366);
+  border-radius: 50%;
+  box-shadow: 0 8rpx 32rpx rgba(255, 159, 67, 0.4);
+}
+
+.main-btn.recording {
+  background: linear-gradient(135deg, var(--error), #FF8E8E);
+}
+
+.btn-icon {
+  font-size: 48rpx;
+  color: #fff;
+}
+
+.btn-text {
+  font-size: 28rpx;
+  color: #fff;
+  margin-top: 8rpx;
+}
+
+/* 动画 */
+@keyframes floatUp {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15rpx); }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}

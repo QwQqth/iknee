@@ -1,0 +1,63 @@
+<!-- 小鹅(iKnee) - 引导页 
+     首次注册语音引导
+-->
+<view class="guide-page">
+  <!-- 背景装饰 -->
+  <view class="bg-decoration">
+    <view class="snowflake snowflake-1"></view>
+    <view class="snowflake snowflake-2"></view>
+    <view class="snowflake snowflake-3"></view>
+  </view>
+
+  <!-- 小企鹅IP -->
+  <view class="penguin-container">
+    <image class="penguin" src="/assets/images/penguin/penguin-default.png" mode="aspectFit" />
+    <!-- 表情气泡 -->
+    <view class="emotion-bubble {{showBubble ? 'show' : ''}}">
+      <text>{{penguinEmotion}}</text>
+    </view>
+  </view>
+
+  <!-- 欢迎文字 -->
+  <view class="welcome-section">
+    <text class="welcome-title">{{welcomeTitle}}</text>
+    <text class="welcome-subtitle">{{welcomeSubtitle}}</text>
+  </view>
+
+  <!-- 语音交互区域 -->
+  <view class="voice-section">
+    <!-- 语音按钮 -->
+    <view 
+      class="voice-btn {{voiceState}}"
+      bindtouchstart="onVoiceStart"
+      bindtouchend="onVoiceEnd"
+    >
+      <view class="voice-btn-inner">
+        <image 
+          class="mic-icon" 
+          src="/assets/images/icons/mic-{{voiceState}}.png" 
+          mode="aspectFit"
+        />
+        <!-- 录音脉冲动画 -->
+        <view class="pulse-ring" wx:if="{{voiceState === 'recording'}}"></view>
+        <!-- 加载圈 -->
+        <view class="loading-ring" wx:if="{{voiceState === 'loading'}}"></view>
+      </view>
+    </view>
+
+    <!-- 识别文字显示 -->
+    <view class="recognized-text {{recognizedText ? 'show' : ''}}">
+      <text>{{recognizedText || '请按住按钮说话'}}</text>
+    </view>
+
+    <!-- 阶段提示 -->
+    <view class="voice-hint {{showHint ? 'show' : ''}}">
+      <text>{{voiceHint}}</text>
+    </view>
+  </view>
+
+  <!-- 跳过按钮 -->
+  <view class="skip-btn" bindtap="onSkip">
+    <text>跳过</text>
+  </view>
+</view>

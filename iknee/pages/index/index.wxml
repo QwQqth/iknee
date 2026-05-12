@@ -1,0 +1,111 @@
+<!-- 小鹅(iKnee) - 首页(极地家园) -->
+<view class="home-page">
+  <!-- 顶部区域 -->
+  <view class="header">
+    <!-- 能量星 -->
+    <view class="energy-stars">
+      <image class="star-icon" src="/assets/images/icons/star.png" mode="aspectFit" />
+      <text class="star-count">{{energyStars}}</text>
+    </view>
+
+    <!-- 用户信息 -->
+    <view class="user-info">
+      <text class="user-greeting">{{greeting}}，{{userName}}</text>
+    </view>
+  </view>
+
+  <!-- 家园场景 -->
+  <view class="home-scene">
+    <!-- 背景层 -->
+    <view class="scene-bg">
+      <view class="snow-ground"></view>
+      <view class="aurora"></view>
+    </view>
+
+    <!-- 建筑层 -->
+    <view class="buildings">
+      <!-- 冰屋 -->
+      <view class="building icehouse {{buildingsUnlocked.icehouse ? 'unlocked' : ''}}">
+        <image src="/assets/images/scene/icehouse.png" mode="aspectFit" />
+      </view>
+      <!-- 暖炉 -->
+      <view class="building fireplace {{buildingsUnlocked.fireplace ? 'unlocked' : ''}}">
+        <image src="/assets/images/scene/fireplace.png" mode="aspectFit" />
+      </view>
+      <!-- 鱼塘 -->
+      <view class="building fispond {{buildingsUnlocked.fispond ? 'unlocked' : ''}}">
+        <image src="/assets/images/scene/fispond.png" mode="aspectFit" />
+      </view>
+    </view>
+
+    <!-- 小企鹅 -->
+    <view class="penguin-home">
+      <image class="penguin-main" src="/assets/images/penguin/penguin-home.png" mode="aspectFit" />
+      <!-- 小企鹅动画 -->
+      <view class="penguin-action" bindtap="onPenguinTap">
+        <text class="penguin-emotion {{penguinEmotion}}">{{penguinEmoji}}</text>
+      </view>
+    </view>
+
+    <!-- 今日任务入口 -->
+    <view class="today-task" bindtap="onTaskTap">
+      <view class="task-bubble">
+        <text class="task-label">今日任务</text>
+        <text class="task-progress">{{completedLevels}}/6关</text>
+      </view>
+      <view class="task-arrow">
+        <text class="arrow-icon">→</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 健康日历 -->
+  <view class="calendar-section">
+    <view class="calendar-header">
+      <text class="calendar-title">本月打卡</text>
+      <text class="calendar-month">{{currentMonth}}</text>
+    </view>
+    <view class="calendar-grid">
+      <view 
+        class="calendar-day {{day.stamped ? 'stamped-' + day.type : ''}}"
+        wx:for="{{calendarDays}}"
+        wx:key="index"
+      >
+        <text>{{day.date}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 快捷入口 -->
+  <view class="quick-actions">
+    <view class="action-card" bindtap="onAssessment">
+      <image class="action-icon" src="/assets/images/icons/assessment.png" mode="aspectFit" />
+      <text class="action-text">膝关节测评</text>
+    </view>
+    <view class="action-card" bindtap="onRecords">
+      <image class="action-icon" src="/assets/images/icons/records.png" mode="aspectFit" />
+      <text class="action-text">训练记录</text>
+    </view>
+    <view class="action-card" bindtap="onBind">
+      <image class="action-icon" src="/assets/images/icons/bind.png" mode="aspectFit" />
+      <text class="action-text">家人绑定</text>
+    </view>
+  </view>
+
+  <!-- 膝关节评分 -->
+  <view class="score-section" bindtap="onAssessment">
+    <view class="score-left">
+      <text class="score-label">膝关节评分</text>
+      <text class="score-value {{scoreClass}}">{{kneeScore}}</text>
+    </view>
+    <view class="score-right">
+      <view class="score-ring">
+        <view class="score-progress" style="transform: rotate({{scoreAngle}}deg)"></view>
+      </view>
+      <text class="score-status">{{scoreStatus}}</text>
+    </view>
+  </view>
+
+  <!-- TabBar 占位 -->
+  <view class="tabbar-placeholder"></view>
+</view>

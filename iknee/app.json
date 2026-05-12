@@ -1,0 +1,78 @@
+{
+  "pages": [
+    "pages/guide/guide",
+    "pages/index/index",
+    "pages/training/training",
+    "pages/training/practice/practice",
+    "pages/encyclopedia/encyclopedia",
+    "pages/video/video",
+    "pages/qa/qa",
+    "pages/profile/profile",
+    "pages/records/records",
+    "pages/settings/settings",
+    "pages/bind/bind",
+    "pages/assessment/assessment"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#FF9F43",
+    "navigationBarTitleText": "小鹅抗腿队",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#E8F4FD",
+    "enablePullDownRefresh": true,
+    "onReachBottomDistance": 50
+  },
+  "tabBar": {
+    "selectedColor": "#FF9F43",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "assets/tabbar/home.png",
+        "selectedIconPath": "assets/tabbar/home-active.png"
+      },
+      {
+        "pagePath": "pages/training/training",
+        "text": "训练",
+        "iconPath": "assets/tabbar/training.png",
+        "selectedIconPath": "assets/tabbar/training-active.png"
+      },
+      {
+        "pagePath": "pages/encyclopedia/encyclopedia",
+        "text": "百科",
+        "iconPath": "assets/tabbar/book.png",
+        "selectedIconPath": "assets/tabbar/book-active.png"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的",
+        "iconPath": "assets/tabbar/user.png",
+        "selectedIconPath": "assets/tabbar/user-active.png"
+      }
+    ]
+  },
+  "permission": {
+    "scope.camera": {
+      "desc": "小鹅需要使用您的摄像头来检测运动动作是否标准"
+    },
+    "scope.record": {
+      "desc": "小鹅需要使用您的麦克风来和您对话"
+    }
+  },
+  "requiredBackgroundModes": [
+    "audio"
+  ],
+  "usingComponents": {},
+  "cloud": true,
+  "lazyCodeLoading": "requiredComponents",
+  "optimization": {
+    "subPackages": true,
+    "treeShaking": {
+      "enable": true
+    }
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

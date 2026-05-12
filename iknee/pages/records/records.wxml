@@ -1,0 +1,75 @@
+<!-- 小鹅(iKnee) - 训练记录页 -->
+<view class="records-page">
+  <!-- 统计概览 -->
+  <view class="stats-overview">
+    <view class="stat-card">
+      <text class="stat-num">{{stats.totalDays}}</text>
+      <text class="stat-label">累计天数</text>
+    </view>
+    <view class="stat-card">
+      <text class="stat-num">{{stats.totalTimes}}</text>
+      <text class="stat-label">训练次数</text>
+    </view>
+    <view class="stat-card">
+      <text class="stat-num">{{stats.totalMins}}</text>
+      <text class="stat-label">累计分钟</text>
+    </view>
+    <view class="stat-card">
+      <text class="stat-num">{{stats.streakDays}}</text>
+      <text class="stat-label">连续打卡</text>
+    </view>
+  </view>
+
+  <!-- 日期选择 -->
+  <view class="date-tabs">
+    <view 
+      class="date-tab {{currentTab === 'week' ? 'active' : ''}}"
+      bindtap="onTabChange"
+      data-tab="week"
+    >
+      本周
+    </view>
+    <view 
+      class="date-tab {{currentTab === 'month' ? 'active' : ''}}"
+      bindtap="onTabChange"
+      data-tab="month"
+    >
+      本月
+    </view>
+    <view 
+      class="date-tab {{currentTab === 'all' ? 'active' : ''}}"
+      bindtap="onTabChange"
+      data-tab="all"
+    >
+      全部
+    </view>
+  </view>
+
+  <!-- 记录列表 -->
+  <view class="records-list">
+    <view 
+      class="record-item"
+      wx:for="{{records}}"
+      wx:key="id"
+    >
+      <view class="record-left">
+        <view class="record-level">关卡{{item.levelNum}}</view>
+        <text class="record-action">{{item.actionName}}</text>
+      </view>
+      <view class="record-right">
+        <view class="record-stars">
+          <text wx:for="{{3}}" wx:for-item="s" wx:key="s" class="{{item.stars >= s ? 'star-active' : ''}}">⭐</text>
+        </view>
+        <text class="record-score">{{item.score}}分</text>
+        <text class="record-date">{{item.date}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 空状态 -->
+  <view class="empty-state" wx:if="{{records.length === 0}}">
+    <text class="empty-icon">📝</text>
+    <text class="empty-text">暂无训练记录</text>
+    <text class="empty-hint">开始今天的训练吧！</text>
+  </view>
+</view>

@@ -1,0 +1,165 @@
+/* 小鹅(iKnee) - 我的页面样式 */
+
+.profile-page {
+  min-height: 100vh;
+  background: var(--bg-primary);
+  padding-bottom: 140rpx;
+}
+
+/* 用户卡片 */
+.user-card {
+  background: linear-gradient(135deg, var(--primary), #FFB366);
+  padding: 40rpx 32rpx;
+  color: #fff;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 32rpx;
+}
+
+.user-avatar {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  background: #fff;
+  padding: 4rpx;
+  margin-right: 24rpx;
+}
+
+.user-avatar image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.user-detail {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-name {
+  font-size: 40rpx;
+  font-weight: bold;
+  margin-bottom: 8rpx;
+}
+
+.user-title {
+  font-size: 28rpx;
+  opacity: 0.9;
+}
+
+/* 统计数据 */
+.user-stats {
+  display: flex;
+  justify-content: space-around;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 20rpx;
+  padding: 24rpx;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-num {
+  display: block;
+  font-size: 48rpx;
+  font-weight: bold;
+  margin-bottom: 8rpx;
+}
+
+.stat-label {
+  font-size: 24rpx;
+  opacity: 0.9;
+}
+
+/* 快捷功能 */
+.quick-section {
+  display: flex;
+  justify-content: space-around;
+  background: #fff;
+  padding: 32rpx 16rpx;
+  margin: 24rpx;
+  border-radius: 20rpx;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.08);
+}
+
+.quick-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.quick-icon {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40rpx;
+  margin-bottom: 12rpx;
+}
+
+.quick-icon.assessment { background: rgba(255, 159, 67, 0.15); }
+.quick-icon.records { background: rgba(38, 222, 129, 0.15); }
+.quick-icon.bind { background: rgba(84, 160, 255, 0.15); }
+.quick-icon.settings { background: rgba(255, 107, 107, 0.15); }
+
+.quick-text {
+  font-size: 24rpx;
+  color: var(--text-primary);
+}
+
+/* 菜单列表 */
+.menu-section {
+  background: #fff;
+  margin: 0 24rpx;
+  border-radius: 20rpx;
+  overflow: hidden;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  padding: 32rpx;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.menu-item:last-child {
+  border-bottom: none;
+}
+
+.menu-icon {
+  font-size: 36rpx;
+  margin-right: 20rpx;
+}
+
+.menu-text {
+  flex: 1;
+  font-size: 30rpx;
+  color: var(--text-primary);
+}
+
+.menu-arrow {
+  font-size: 28rpx;
+  color: var(--text-disabled);
+}
+
+/* 版本信息 */
+.version-info {
+  text-align: center;
+  padding: 40rpx;
+}
+
+.version-info text {
+  font-size: 24rpx;
+  color: var(--text-disabled);
+}
+
+/* TabBar占位 */
+.tabbar-placeholder {
+  height: 120rpx;
+}

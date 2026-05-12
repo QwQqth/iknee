@@ -1,0 +1,86 @@
+<!-- 小鹅(iKnee) - 百科页 -->
+<view class="encyclopedia-page">
+  <!-- 搜索栏 -->
+  <view class="search-bar">
+    <input 
+      class="search-input"
+      placeholder="搜索膝关节健康知识"
+      bindconfirm="onSearch"
+    />
+    <view class="search-btn" bindtap="onSearch">
+      <text>🔍</text>
+    </view>
+  </view>
+
+  <!-- 分类导航 -->
+  <scroll-view class="category-nav" scroll-x>
+    <view 
+      class="category-item {{currentCategory === item.id ? 'active' : ''}}"
+      wx:for="{{categories}}"
+      wx:key="id"
+      bindtap="onCategoryChange"
+      data-id="{{item.id}}"
+    >
+      <text>{{item.name}}</text>
+    </view>
+  </scroll-view>
+
+  <!-- 推荐视频 -->
+  <view class="section">
+    <view class="section-header">
+      <text class="section-title">推荐视频</text>
+      <text class="section-more" bindtap="onMoreVideo">更多 ></text>
+    </view>
+
+    <scroll-view class="video-scroll" scroll-x>
+      <view 
+        class="video-card"
+        wx:for="{{videos}}"
+        wx:key="id"
+        bindtap="onVideoTap"
+        data-video="{{item}}"
+      >
+        <view class="video-cover">
+          <image src="{{item.coverUrl}}" mode="aspectFill" />
+          <view class="video-duration">
+            <text>{{item.duration}}</text>
+          </view>
+        </view>
+        <view class="video-info">
+          <text class="video-title">{{item.title}}</text>
+          <text class="video-views">{{item.views}}次观看</text>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- 科普文章 -->
+  <view class="section">
+    <view class="section-header">
+      <text class="section-title">科普文章</text>
+      <text class="section-more" bindtap="onMoreArticle">更多 ></text>
+    </view>
+
+    <view class="article-list">
+      <view 
+        class="article-item"
+        wx:for="{{articles}}"
+        wx:key="id"
+        bindtap="onArticleTap"
+        data-article="{{item}}"
+      >
+        <image class="article-cover" src="{{item.coverUrl}}" mode="aspectFill" />
+        <view class="article-info">
+          <text class="article-title">{{item.title}}</text>
+          <view class="article-meta">
+            <text class="article-tag">{{item.tag}}</text>
+            <text class="article-date">{{item.date}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- TabBar占位 -->
+  <view class="tabbar-placeholder"></view>
+</view>

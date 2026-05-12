@@ -1,0 +1,180 @@
+/* 小鹅(iKnee) - 家人绑定页样式 */
+
+.bind-page {
+  min-height: 100vh;
+  background: var(--bg-primary);
+  padding: 32rpx;
+}
+
+/* 说明卡片 */
+.intro-card {
+  background: #fff;
+  padding: 40rpx 32rpx;
+  border-radius: 24rpx;
+  text-align: center;
+  margin-bottom: 32rpx;
+}
+
+.intro-icon {
+  width: 120rpx;
+  height: 120rpx;
+  margin-bottom: 20rpx;
+}
+
+.intro-title {
+  display: block;
+  font-size: 36rpx;
+  font-weight: bold;
+  color: var(--text-primary);
+  margin-bottom: 12rpx;
+}
+
+.intro-desc {
+  display: block;
+  font-size: 28rpx;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* 区块 */
+.bind-section {
+  background: #fff;
+  border-radius: 20rpx;
+  margin-bottom: 24rpx;
+  overflow: hidden;
+}
+
+.section-header {
+  padding: 24rpx 32rpx 12rpx;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.section-title {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: var(--text-primary);
+}
+
+/* 家人列表 */
+.family-list {
+  padding: 16rpx 0;
+}
+
+.family-item {
+  display: flex;
+  align-items: center;
+  padding: 20rpx 32rpx;
+}
+
+.family-avatar {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  background: var(--bg-primary);
+  margin-right: 20rpx;
+  overflow: hidden;
+}
+
+.family-avatar image {
+  width: 100%;
+  height: 100%;
+}
+
+.family-info {
+  flex: 1;
+}
+
+.family-name {
+  display: block;
+  font-size: 30rpx;
+  font-weight: bold;
+  color: var(--text-primary);
+  margin-bottom: 4rpx;
+}
+
+.family-relation {
+  display: block;
+  font-size: 24rpx;
+  color: var(--text-secondary);
+}
+
+.unbind-btn {
+  font-size: 26rpx;
+  color: var(--error);
+  padding: 8rpx 16rpx;
+}
+
+/* 绑定方式 */
+.bind-method {
+  display: flex;
+  align-items: center;
+  padding: 28rpx 32rpx;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.bind-method:last-child {
+  border-bottom: none;
+}
+
+.method-icon {
+  width: 80rpx;
+  height: 80rpx;
+  background: var(--bg-primary);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40rpx;
+  margin-right: 20rpx;
+}
+
+.method-info {
+  flex: 1;
+}
+
+.method-title {
+  display: block;
+  font-size: 30rpx;
+  font-weight: bold;
+  color: var(--text-primary);
+  margin-bottom: 4rpx;
+}
+
+.method-desc {
+  display: block;
+  font-size: 24rpx;
+  color: var(--text-secondary);
+}
+
+.method-arrow {
+  font-size: 28rpx;
+  color: var(--text-disabled);
+}
+
+/* 二维码 */
+.qrcode-section {
+  padding: 40rpx;
+  text-align: center;
+}
+
+.qrcode-box {
+  width: 280rpx;
+  height: 280rpx;
+  margin: 0 auto 20rpx;
+  background: #fff;
+  padding: 16rpx;
+  border-radius: 16rpx;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.1);
+}
+
+.qrcode {
+  width: 100%;
+  height: 100%;
+}
+
+.qrcode-hint {
+  display: block;
+  font-size: 26rpx;
+  color: var(--text-secondary);
+  margin-bottom: 24rpx;
+}
